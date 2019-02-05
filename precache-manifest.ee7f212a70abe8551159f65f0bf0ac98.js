@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/test-todo/static/js/runtime~main.4fc7fd2b.js"
   },
   {
-    "revision": "a96b838d227e10fd9549",
-    "url": "/test-todo/static/js/main.a96b838d.chunk.js"
+    "revision": "1152db927d9f910ce2c5",
+    "url": "/test-todo/static/js/main.1152db92.chunk.js"
   },
   {
     "revision": "dc2ee31add19dba35d83",
     "url": "/test-todo/static/js/1.dc2ee31a.chunk.js"
   },
   {
-    "revision": "a96b838d227e10fd9549",
+    "revision": "1152db927d9f910ce2c5",
     "url": "/test-todo/static/css/main.69db77a3.chunk.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/test-todo/static/css/1.cd7e89e3.chunk.css"
   },
   {
-    "revision": "1d3e9ad6d759aa8ea455edf7402f4b4d",
+    "revision": "efa06669821a3d6c59e3b30970acfad9",
     "url": "/test-todo/index.html"
   }
 ];
