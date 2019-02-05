@@ -1,15 +1,15 @@
 {
-  "main.css": "/ra-1-MG-Pro/static/css/main.69db77a3.chunk.css",
-  "main.js": "/ra-1-MG-Pro/static/js/main.a96b838d.chunk.js",
-  "main.js.map": "/ra-1-MG-Pro/static/js/main.a96b838d.chunk.js.map",
-  "static/css/1.cd7e89e3.chunk.css": "/ra-1-MG-Pro/static/css/1.cd7e89e3.chunk.css",
-  "static/js/1.861f2d39.chunk.js": "/ra-1-MG-Pro/static/js/1.861f2d39.chunk.js",
-  "static/js/1.861f2d39.chunk.js.map": "/ra-1-MG-Pro/static/js/1.861f2d39.chunk.js.map",
-  "runtime~main.js": "/ra-1-MG-Pro/static/js/runtime~main.eaf420eb.js",
-  "runtime~main.js.map": "/ra-1-MG-Pro/static/js/runtime~main.eaf420eb.js.map",
-  "static/css/main.69db77a3.chunk.css.map": "/ra-1-MG-Pro/static/css/main.69db77a3.chunk.css.map",
-  "static/css/1.cd7e89e3.chunk.css.map": "/ra-1-MG-Pro/static/css/1.cd7e89e3.chunk.css.map",
-  "index.html": "/ra-1-MG-Pro/index.html",
-  "precache-manifest.6524b1efa099d57a71e97c368f65dfd5.js": "/ra-1-MG-Pro/precache-manifest.6524b1efa099d57a71e97c368f65dfd5.js",
-  "service-worker.js": "/ra-1-MG-Pro/service-worker.js"
+  "main.css": "/test-todo/static/css/main.69db77a3.chunk.css",
+  "main.js": "/test-todo/static/js/main.a96b838d.chunk.js",
+  "main.js.map": "/test-todo/static/js/main.a96b838d.chunk.js.map",
+  "static/css/1.cd7e89e3.chunk.css": "/test-todo/static/css/1.cd7e89e3.chunk.css",
+  "static/js/1.dc2ee31a.chunk.js": "/test-todo/static/js/1.dc2ee31a.chunk.js",
+  "static/js/1.dc2ee31a.chunk.js.map": "/test-todo/static/js/1.dc2ee31a.chunk.js.map",
+  "runtime~main.js": "/test-todo/static/js/runtime~main.4fc7fd2b.js",
+  "runtime~main.js.map": "/test-todo/static/js/runtime~main.4fc7fd2b.js.map",
+  "static/css/1.cd7e89e3.chunk.css.map": "/test-todo/static/css/1.cd7e89e3.chunk.css.map",
+  "static/css/main.69db77a3.chunk.css.map": "/test-todo/static/css/main.69db77a3.chunk.css.map",
+  "index.html": "/test-todo/index.html",
+  "precache-manifest.39d53c80534bc476d5a0306a7a773adb.js": "/test-todo/precache-manifest.39d53c80534bc476d5a0306a7a773adb.js",
+  "service-worker.js": "/test-todo/service-worker.js"
 }
