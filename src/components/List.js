@@ -28,7 +28,8 @@ class List extends Component {
 
   closeTask = () => {
     this.setState({
-      taskModal: false
+      taskModal: false,
+      currentEditTask: null
     })
   };
 
@@ -57,7 +58,7 @@ class List extends Component {
           </div>
           <div className="row">
             <div className="col text-right font-weight-bold mb-3">
-              <button onClick={this.openTask} className='btn btn-secondary mr-3'>Add Task</button>
+              <button onClick={() => this.openTask()} className='btn btn-secondary mr-3'>Add Task</button>
               <label className='list-edit-action'>
                 <span className='mr-2'>Edit Mode</span>
                 <input type="checkbox" onChange={this.editToggle} checked={props.editMode}/>

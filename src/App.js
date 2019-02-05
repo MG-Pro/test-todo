@@ -26,8 +26,8 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
-          <div className="">
+        <Router basename={process.env.PUBLIC_URL}>
+          <div>
             <Header/>
             <Switch>
               <Route exact path='/' component={List}/>

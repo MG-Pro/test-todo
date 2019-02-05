@@ -42,3 +42,15 @@ export const updateTask = (task) => dispatch => {
       console.log(err);
     })
 };
+
+export const deleteTask = (task) => dispatch => {
+  database.ref(`tasks/${task.id}`).remove()
+    .then(() => {
+      dispatch(showMessage({type: 'OK', text: 'Task deleted'}));
+      dispatch(getTasks())
+    })
+    .catch(err => {
+      dispatch(showMessage({type: 'err', text: 'Task delete error'}));
+      console.log(err);
+    })
+};

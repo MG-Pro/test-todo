@@ -9,7 +9,7 @@ class Task extends Component {
       errorMsg: '',
       title: props.task ? props.task.title : '',
       desc: props.task ? props.task.desc : '',
-      complete: props.task ? props.task.complete : false
+      complete: props.task ? props.task.complete : false,
     }
   }
 
@@ -34,6 +34,7 @@ class Task extends Component {
     e.preventDefault();
     let errorMsg = '';
     const {title, desc, complete} = this.state;
+    const {props} = this;
 
     if (title.length < 3) {
       errorMsg += 'Title invalid: min 3 char. '
@@ -46,18 +47,26 @@ class Task extends Component {
       this.setState({
         errorMsg
       })
-    } else {
-      this.props.addTask({
+    } else if(!props.task) {
+      props.addTask({
         title,
         desc,
         complete
       });
-      this.props.close();
+      props.close();
+    } else {
+      props.updateTask({
+        title,
+        desc,
+        complete
+      })
+      props.close();
     }
   };
 
   render() {
     const {props, state} = this;
+    const active = !!(props.editMode || !props.task);
     return (
       <div className='task'>
         <div className='modal fade show' style={{display: 'block'}}>
@@ -75,7 +84,7 @@ class Task extends Component {
                     <label>Task Title</label>
                     <input
                       type='text'
-                      disabled={!props.editMode}
+                      disabled={!active}
                       className="form-control"
                       name='title'
                       value={state.title}
@@ -86,7 +95,7 @@ class Task extends Component {
                     <label>Task Description</label>
                     <textarea
                       className="form-control"
-                      disabled={!props.editMode}
+                      disabled={!active}
                       rows="3"
                       name='desc'
                       value={state.desc}
@@ -99,7 +108,7 @@ class Task extends Component {
                       <span className='mr-2'>Status</span>
                       <input
                         type="checkbox"
-                        disabled={!props.editMode}
+                        disabled={!active}
                         onChange={this.completeChange}
                         name='complete'
                         checked={state.complete}
@@ -110,7 +119,7 @@ class Task extends Component {
                 </div>
                 <div className="modal-footer">
                   <button className="btn btn-secondary" onClick={this.close}>Close</button>
-                  <button className="btn btn-dark" disabled={!props.editMode}>Save</button>
+                  <button className="btn btn-dark" disabled={!active}>Save</button>
                 </div>
               </form>
             </div>
