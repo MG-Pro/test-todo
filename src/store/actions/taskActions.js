@@ -1,17 +1,17 @@
-import {ADD_TASK, UPD_TASK, TASK_LIST, DEL_TASK} from '../actions/types';
+import {TASK_LIST} from '../actions/types';
 import database from '../../firebase/firebase';
+import {showMessage} from './messageAction';
+
 
 export const getTasks = () => dispatch => {
   database.ref('tasks').once('value').then(res => {
     const tasks = [];
-
     res.forEach(item => {
       tasks.push({
         id: item.key,
         ...item.val()
       });
     });
-
     dispatch({
       type: TASK_LIST,
       payload: tasks
@@ -21,12 +21,24 @@ export const getTasks = () => dispatch => {
 
 export const addTask = (task) => dispatch => {
   database.ref('tasks').push(task)
-    .then(res => {
-      console.log(res);
-      dispatch({
-        type: ADD_TASK,
-        payload: res
-      });
-      //dispatch(getTasks())
+    .then(() => {
+      dispatch(showMessage({type: 'OK', text: 'Task added'}));
+      dispatch(getTasks())
+    })
+    .catch(err => {
+      dispatch(showMessage({type: 'err', text: 'Task add error'}));
+      console.log(err);
+    })
+};
+
+export const updateTask = (task) => dispatch => {
+  database.ref(`tasks/${task.id}`).update(task)
+    .then(() => {
+      dispatch(showMessage({type: 'OK', text: 'Task updated'}));
+      dispatch(getTasks())
+    })
+    .catch(err => {
+      dispatch(showMessage({type: 'err', text: 'Task update error'}));
+      console.log(err);
     })
 };

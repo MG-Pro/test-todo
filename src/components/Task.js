@@ -1,19 +1,21 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {updateTask, addTask} from '../store/actions/taskActions';
 
 class Task extends Component {
   constructor(props) {
     super(props);
     this.state = {
       errorMsg: '',
-      title: props.task && props.task.title || '',
-      desc: props.task && props.task.desc || '',
-      complete: props.task && props.task.complete || false
+      title: props.task ? props.task.title : '',
+      desc: props.task ? props.task.desc : '',
+      complete: props.task ? props.task.complete : false
     }
   }
 
   close = e => {
     e.preventDefault();
-    this.props.actions.close();
+    this.props.close();
   };
 
   inputChange = (e) => {
@@ -45,11 +47,12 @@ class Task extends Component {
         errorMsg
       })
     } else {
-      this.props.actions.save({
+      this.props.addTask({
         title,
         desc,
         complete
       });
+      this.props.close();
     }
   };
 
@@ -70,25 +73,44 @@ class Task extends Component {
                   </div>
                   <div className="form-group">
                     <label>Task Title</label>
-                    <input className="form-control" name='title' value={state.title} onChange={this.inputChange}/>
+                    <input
+                      type='text'
+                      disabled={!props.editMode}
+                      className="form-control"
+                      name='title'
+                      value={state.title}
+                      onChange={this.inputChange}
+                    />
                   </div>
                   <div className="form-group">
                     <label>Task Description</label>
-                    <textarea className="form-control" rows="3" name='desc' value={state.desc}
-                      onChange={this.inputChange}/>
+                    <textarea
+                      className="form-control"
+                      disabled={!props.editMode}
+                      rows="3"
+                      name='desc'
+                      value={state.desc}
+                      onChange={this.inputChange}
+                    />
                   </div>
                   {props.task &&
                   <div className="form-group">
                     <label className='list-edit-action'>
                       <span className='mr-2'>Status</span>
-                      <input type="checkbox" onChange={this.completeChange} name='complete' checked={state.complete}/>
+                      <input
+                        type="checkbox"
+                        disabled={!props.editMode}
+                        onChange={this.completeChange}
+                        name='complete'
+                        checked={state.complete}
+                      />
                     </label>
                   </div>
                   }
                 </div>
                 <div className="modal-footer">
                   <button className="btn btn-secondary" onClick={this.close}>Close</button>
-                  <button className="btn btn-dark">Save</button>
+                  <button className="btn btn-dark" disabled={!props.editMode}>Save</button>
                 </div>
               </form>
             </div>
@@ -100,4 +122,8 @@ class Task extends Component {
   }
 }
 
-export default Task;
+const mapStateToProps = state => ({
+  editMode: state.editMode
+});
+
+export default connect(mapStateToProps, {updateTask, addTask})(Task);
