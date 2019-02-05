@@ -1,3 +1,5 @@
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+
 export const TASK_LIST = 'TASK_LIST';
 export const ADD_TASK = 'ADD_TASK';
 export const UPD_TASK = 'UPD_TASK';
